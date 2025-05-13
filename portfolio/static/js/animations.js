@@ -45,4 +45,82 @@ function initAnimations() {
 }
 
 // Initialize when DOM is loaded
-document.addEventListener("DOMContentLoaded", initAnimations);
+document.addEventListener("DOMContentLoaded", () => {
+  // Intersection Observer for fade-in elements
+  const fadeElements = document.querySelectorAll(".fade-in-element");
+  const slideElements = document.querySelectorAll(".slide-up-element");
+  const scaleElements = document.querySelectorAll(".scale-in-element");
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.1,
+    rootMargin: "0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        // Unobserve after animation
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all animation elements
+  fadeElements.forEach((el) => observer.observe(el));
+  slideElements.forEach((el) => observer.observe(el));
+  scaleElements.forEach((el) => observer.observe(el));
+
+  // Smooth scroll for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+
+  // Mobile menu toggle
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      mobileMenuBtn.setAttribute(
+        "aria-expanded",
+        navLinks.classList.contains("active").toString()
+      );
+    });
+  }
+
+  // Active link highlighting
+  const sections = document.querySelectorAll("section[id]");
+
+  function highlightNavLink() {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach((section) => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 100;
+      const sectionId = section.getAttribute("id");
+      const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+      if (navLink) {
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLink.classList.add("active");
+        } else {
+          navLink.classList.remove("active");
+        }
+      }
+    });
+  }
+
+  window.addEventListener("scroll", highlightNavLink);
+});
