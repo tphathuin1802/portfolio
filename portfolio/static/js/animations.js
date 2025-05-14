@@ -1,3 +1,21 @@
+// Arrow icon chuyển section
+function scrollToNextSection(el) {
+  let section = el.closest("section");
+  if (section) {
+    let next = section.nextElementSibling;
+    // Lặp đến khi gặp section tiếp theo
+    while (
+      next &&
+      (next.nodeType !== 1 || next.tagName.toLowerCase() !== "section")
+    ) {
+      next = next.nextElementSibling;
+    }
+    if (next) {
+      next.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+}
+
 // Animation configuration
 const ANIMATION = {
   THRESHOLD: 0.1,
@@ -123,4 +141,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", highlightNavLink);
+
+  // Arrow Down Button scroll behavior
+  const arrowBtn = document.getElementById("arrowDownBtn");
+  if (arrowBtn) {
+    let lastClick = 0;
+    arrowBtn.addEventListener("click", function (e) {
+      const now = Date.now();
+      if (now - lastClick < 300) return; // ignore if double click
+      lastClick = now;
+      // Scroll to next section
+      const hero = document.getElementById("home");
+      let nextSection = hero && hero.nextElementSibling;
+      while (nextSection && nextSection.tagName !== "SECTION") {
+        nextSection = nextSection.nextElementSibling;
+      }
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+    arrowBtn.addEventListener("dblclick", function (e) {
+      // Scroll to footer
+      const footer = document.querySelector("footer");
+      if (footer) {
+        footer.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
 });
