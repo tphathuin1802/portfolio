@@ -7,4 +7,5 @@ whitenoise>=6.5.0  # For serving static files
 gunicorn>=21.2.0  # For production deployment
 django-ckeditor>=6.7.0  # For rich text editing
 django-cleanup>=8.0.0  # For automatic file cleanup
-mysqlclient 
+mysqlclient
+dj-database-url 
