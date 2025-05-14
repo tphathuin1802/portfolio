@@ -15,7 +15,7 @@
     />
     <meta name="author" content="Phat Huynh" />
 
-    <title>Phat Huynh|Portfolio</title>
+    <title>Phat Huynh | Portfolio</title>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="{% static 'css/style.css' %}" as="style" />
@@ -43,7 +43,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="{% static 'images/myface.png' %}"
+      href="{% static 'images/myface.jpg' %}"
     />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -64,7 +64,7 @@
       <nav id="navbar" aria-label="Main navigation">
         <div class="left-nav">
           <a href="/" class="logo-link">
-            <h2>PORTFOLIO</h2>
+            <h2>PH PORTFOLIO</h2>
           </a>
         </div>
         <div class="right-nav">
@@ -129,13 +129,12 @@
             <h2 class="hero-subtitle">
               <span class="highlight">I am a</span> Data Science fresher</h2>
             <div class="cta-buttons">
-              <a
-                href="{% static 'pdf/HUYNHTANPHAT.pdf' %}"
+              <button
                 class="btn btn-dark"
-                download
+                onclick="window.open('{% static 'pdf/HUYNHTANPHAT.pdf' %}', '_blank')"
               >
                 <i class="fas fa-download" aria-hidden="true"></i> Download CV
-              </a>
+              </button>
               <a href="https://t.me/tphathuin1802" class="btn btn-dark" id="hireme">
                 <i class="fas fa-paper-plane" aria-hidden="true"></i> Contact Me
               </a>
@@ -180,6 +179,26 @@
         <div class="section-container">
           <h2 class="section-title">Skills</h2>
           <div class="skills-grid">
+            
+            <!-- Programming Languages -->
+            <div class="skill-category slide-up-element">
+              <h3><i class="fas fa-code"></i> Programming Languages</h3>
+              <div class="skill-items">
+                <div class="skill-item">
+                  <i class="fab fa-python"></i>
+                  <span>Python</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fab fa-windows"></i>
+                  <span>C#</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fab fa-js"></i>
+                  <span>JavaScript</span>
+                </div>
+              </div>
+            </div>
+
             <!-- Data Science Skills -->
             <div class="skill-category slide-up-element">
               <h3><i class="fas fa-brain"></i> Data Science</h3>
@@ -193,7 +212,7 @@
                   <span>PyTorch</span>
                 </div>
                 <div class="skill-item">
-                  <i class="fab fa-tensorflow"></i>
+                  <i class="fas fa-vector-square"></i>
                   <span>TensorFlow</span>
                 </div>
               </div>
@@ -214,6 +233,26 @@
               </div>
             </div>
 
+            <!-- Database Skills -->
+            <div class="skill-category slide-up-element">
+              <h3><i class="fas fa-brain"></i> Database</h3>
+              <div class="skill-items">
+                <div class="skill-item">
+                  <i class="fas fa-database"></i>
+                  <span>MySQL</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-database"></i>
+                  <span>MSSQL Server</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-database"></i>
+                  <span>MongoDB</span>
+                </div>
+              </div>
+            </div>
+
+
             <!-- Other Skills -->
             <div class="skill-category slide-up-element">
               <h3><i class="fas fa-tools"></i> Others</h3>
@@ -224,24 +263,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- Programming Languages -->
-            <div class="skill-category slide-up-element">
-              <h3><i class="fas fa-code"></i> Programming Languages</h3>
-              <div class="skill-items">
-                <div class="skill-item">
-                  <i class="fab fa-python"></i>
-                  <span>Python</span>
-                </div>
-                <div class="skill-item">
-                  <i class="fab fa-windows"></i>
-                  <span>C#</span>
-                </div>
-                <div class="skill-item">
-                  <i class="fab fa-js"></i>
-                  <span>JavaScript</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -253,6 +274,27 @@
           <h2 class="section-title">Projects</h2>
           <div class="projects-grid">
             <article class="project-card slide-up-element">
+              <h3>Data Science</h3>
+              <p>
+                1. Machine Learning in Finance with Project: Stock Strategy Backtesing
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/tphathuin1802/stock-strategy-backtesting"
+                  class="btn btn-dark"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fab fa-github" aria-hidden="true"></i> GitHub
+                </a>
+                <a href="https://github.com/tphathuin1802/stock-strategy-backtesting/blob/main/main.ipynb" class="btn btn-dark" target="_blank" rel="noopener">
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                  Live Demo
+                </a>
+              </div>
+              
+
+
               <h3>Data Analysis</h3>
               <p>
                 Data visualization project using Streamlit and Plotly. I'm the coding leader of the project.
@@ -271,24 +313,7 @@
                   Live Demo
                 </a>
               
-                <h3>Data Science</h3>
-              <p>
-                1. Machine Learning in Finance with Project: Stock Strategy Backtesing
-              </p>
-              <div class="project-links">
-                <a
-                  href="https://github.com/tphathuin1802/stock-strategy-backtesting"
-                  class="btn btn-dark"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fab fa-github" aria-hidden="true"></i> GitHub
-                </a>
-                <a href="https://github.com/tphathuin1802/stock-strategy-backtesting/blob/main/main.ipynb" class="btn btn-dark" target="_blank" rel="noopener">
-                  <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                  Live Demo
-                </a>
-              </div>
+              
             </article>
             <!-- Add more project cards -->
           </div>
@@ -299,6 +324,14 @@
       <section id="education" class="education-section fade-in-element">
         <div class="section-container">
           <h2 class="section-title">Education</h2>
+
+          <div class = "education-grid  ">
+            <div class = "education-item">
+                  <h3>University of Economics and Law - VNU</h3>
+              <p>2023 - 2027</p>
+              <p>Major: Mathematical Economics</p>
+            </div>
+          </div>
           
         </div>
       </section>
